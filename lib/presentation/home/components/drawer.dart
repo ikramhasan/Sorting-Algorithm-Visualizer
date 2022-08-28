@@ -6,6 +6,7 @@ import 'package:sorting_visualizer/application/sorting_cubit.dart';
 import 'package:sorting_visualizer/domain/sorting_algorithm.dart';
 import 'package:sorting_visualizer/presentation/home/components/title_text.dart';
 import 'package:sorting_visualizer/presentation/styles/text_styles.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsDrawer extends StatelessWidget {
   const SettingsDrawer({Key? key}) : super(key: key);
@@ -213,6 +214,19 @@ class SettingsDrawer extends StatelessWidget {
                           ),
                         ),
                       ],
+                    ),
+                  ),
+                ),
+                const fluentUI.Spacer(),
+                InkWell(
+                  onTap: () {
+                    final Uri url = Uri.parse('https://ikramhasan.com');
+                    launchUrl(url);
+                  },
+                  child: const fluentUI.Text(
+                    'About me',
+                    style: fluentUI.TextStyle(
+                      decoration: TextDecoration.underline,
                     ),
                   ),
                 ),
