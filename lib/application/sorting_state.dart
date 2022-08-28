@@ -10,6 +10,7 @@ class SortingState with _$SortingState {
     required Duration speed,
     required double maxHeight,
     required bool sorting,
+    required bool sorted,
     required bool playing,
   }) = _SortingState;
 
@@ -22,5 +23,6 @@ class SortingState with _$SortingState {
         maxHeight: 800,
         sorting: false,
         playing: false,
+        sorted: false,
       );
 }

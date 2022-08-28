@@ -5,12 +5,18 @@ part 'node.freezed.dart';
 @freezed
 class Node with _$Node {
   const factory Node({
-    required bool state,
+    required NodeState state,
     required double value,
   }) = _Node;
 
   factory Node.empty() => const _Node(
-        state: false,
+        state: NodeState.idle,
         value: 0,
       );
+}
+
+enum NodeState {
+  idle,
+  checking,
+  sorted,
 }

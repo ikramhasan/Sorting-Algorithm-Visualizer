@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Node {
-  bool get state => throw _privateConstructorUsedError;
+  NodeState get state => throw _privateConstructorUsedError;
   double get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -27,7 +27,7 @@ mixin _$Node {
 abstract class $NodeCopyWith<$Res> {
   factory $NodeCopyWith(Node value, $Res Function(Node) then) =
       _$NodeCopyWithImpl<$Res>;
-  $Res call({bool state, double value});
+  $Res call({NodeState state, double value});
 }
 
 /// @nodoc
@@ -47,7 +47,7 @@ class _$NodeCopyWithImpl<$Res> implements $NodeCopyWith<$Res> {
       state: state == freezed
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as NodeState,
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -61,7 +61,7 @@ abstract class _$$_NodeCopyWith<$Res> implements $NodeCopyWith<$Res> {
   factory _$$_NodeCopyWith(_$_Node value, $Res Function(_$_Node) then) =
       __$$_NodeCopyWithImpl<$Res>;
   @override
-  $Res call({bool state, double value});
+  $Res call({NodeState state, double value});
 }
 
 /// @nodoc
@@ -82,7 +82,7 @@ class __$$_NodeCopyWithImpl<$Res> extends _$NodeCopyWithImpl<$Res>
       state: state == freezed
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as NodeState,
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -97,7 +97,7 @@ class _$_Node implements _Node {
   const _$_Node({required this.state, required this.value});
 
   @override
-  final bool state;
+  final NodeState state;
   @override
   final double value;
 
@@ -129,10 +129,10 @@ class _$_Node implements _Node {
 
 abstract class _Node implements Node {
   const factory _Node(
-      {required final bool state, required final double value}) = _$_Node;
+      {required final NodeState state, required final double value}) = _$_Node;
 
   @override
-  bool get state;
+  NodeState get state;
   @override
   double get value;
   @override

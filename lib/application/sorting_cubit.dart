@@ -23,7 +23,7 @@ class SortingCubit extends Cubit<SortingState> {
 
   void initialize(double height) {
     _sortSubscription?.cancel();
-    emit(state.copyWith(maxHeight: height, sorting: false));
+    emit(state.copyWith(maxHeight: height, sorting: false, sorted: false));
     _createAndEmitRandomArray(state.length);
   }
 
@@ -99,7 +99,7 @@ class SortingCubit extends Cubit<SortingState> {
     });
 
     _sortSubscription?.onDone(() {
-      emit(state.copyWith(sorting: false, playing: false));
+      emit(state.copyWith(sorting: false, playing: false, sorted: true));
     });
   }
 }

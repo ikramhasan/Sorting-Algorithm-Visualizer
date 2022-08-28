@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
                       for (Node node in state.array)
                         Flexible(
                           child: Container(
-                            color: node.state ? Colors.green : state.color,
+                            color: _getNodeColor(node.state),
                             height: node.value,
                           ),
                         ),
@@ -70,5 +70,18 @@ class HomePage extends StatelessWidget {
         );
       },
     );
+  }
+}
+
+Color _getNodeColor(NodeState state) {
+  switch (state) {
+    case NodeState.idle:
+      return Colors.white;
+    case NodeState.checking:
+      return Colors.red;
+    case NodeState.sorted:
+      return Colors.green;
+    default:
+      return Colors.white;
   }
 }

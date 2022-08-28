@@ -9,7 +9,7 @@ List<Node> generateArrayWithRandomNodes(int length, int maxHeight) {
   for (int i = 0; i < length; i++) {
     array.add(
       Node(
-        state: false,
+        state: NodeState.idle,
         value: random.nextInt(maxHeight).toDouble(),
       ),
     );

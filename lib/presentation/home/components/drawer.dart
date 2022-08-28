@@ -27,7 +27,9 @@ class SettingsDrawer extends StatelessWidget {
                 const Divider(height: 16),
                 Text(
                   'Total Nodes',
-                  style: settingsTextStyles,
+                  style: state.sorting
+                      ? settingsTextStyles.copyWith(color: Colors.grey)
+                      : settingsTextStyles,
                 ),
                 const fluentUI.SizedBox(height: 8),
                 fluentUI.Slider(
@@ -48,7 +50,9 @@ class SettingsDrawer extends StatelessWidget {
                   children: [
                     Text(
                       'Speed',
-                      style: settingsTextStyles,
+                      style: state.sorting
+                          ? settingsTextStyles.copyWith(color: Colors.grey)
+                          : settingsTextStyles,
                     ),
                     fluentUI.SizedBox(
                       width: 100,
@@ -94,7 +98,9 @@ class SettingsDrawer extends StatelessWidget {
                   children: [
                     Text(
                       'Algorithm',
-                      style: settingsTextStyles,
+                      style: state.sorting
+                          ? settingsTextStyles.copyWith(color: Colors.grey)
+                          : settingsTextStyles,
                     ),
                     fluentUI.SizedBox(
                       width: 100,
@@ -169,9 +175,29 @@ class SettingsDrawer extends StatelessWidget {
                 const fluentUI.SizedBox(height: 16),
                 NeoPopButton(
                   color: Colors.white,
-                  onTapUp: () {
-                    context.read<SortingCubit>().sort();
-                  },
+                  onTapUp: state.sorting
+                      ? null
+                      : () {
+                          if (state.sorted) {
+                            fluentUI.showSnackbar(
+                              context,
+                              fluentUI.Snackbar(
+                                extended: true,
+                                content: fluentUI.Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    'Array is already sorted!\nPlease generate a new array.',
+                                    style: settingsTextStyles.copyWith(
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          } else {
+                            context.read<SortingCubit>().sort();
+                          }
+                        },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 20, vertical: 15),

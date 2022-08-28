@@ -23,6 +23,7 @@ mixin _$SortingState {
   Duration get speed => throw _privateConstructorUsedError;
   double get maxHeight => throw _privateConstructorUsedError;
   bool get sorting => throw _privateConstructorUsedError;
+  bool get sorted => throw _privateConstructorUsedError;
   bool get playing => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -43,6 +44,7 @@ abstract class $SortingStateCopyWith<$Res> {
       Duration speed,
       double maxHeight,
       bool sorting,
+      bool sorted,
       bool playing});
 }
 
@@ -63,6 +65,7 @@ class _$SortingStateCopyWithImpl<$Res> implements $SortingStateCopyWith<$Res> {
     Object? speed = freezed,
     Object? maxHeight = freezed,
     Object? sorting = freezed,
+    Object? sorted = freezed,
     Object? playing = freezed,
   }) {
     return _then(_value.copyWith(
@@ -94,6 +97,10 @@ class _$SortingStateCopyWithImpl<$Res> implements $SortingStateCopyWith<$Res> {
           ? _value.sorting
           : sorting // ignore: cast_nullable_to_non_nullable
               as bool,
+      sorted: sorted == freezed
+          ? _value.sorted
+          : sorted // ignore: cast_nullable_to_non_nullable
+              as bool,
       playing: playing == freezed
           ? _value.playing
           : playing // ignore: cast_nullable_to_non_nullable
@@ -117,6 +124,7 @@ abstract class _$$_SortingStateCopyWith<$Res>
       Duration speed,
       double maxHeight,
       bool sorting,
+      bool sorted,
       bool playing});
 }
 
@@ -140,6 +148,7 @@ class __$$_SortingStateCopyWithImpl<$Res>
     Object? speed = freezed,
     Object? maxHeight = freezed,
     Object? sorting = freezed,
+    Object? sorted = freezed,
     Object? playing = freezed,
   }) {
     return _then(_$_SortingState(
@@ -171,6 +180,10 @@ class __$$_SortingStateCopyWithImpl<$Res>
           ? _value.sorting
           : sorting // ignore: cast_nullable_to_non_nullable
               as bool,
+      sorted: sorted == freezed
+          ? _value.sorted
+          : sorted // ignore: cast_nullable_to_non_nullable
+              as bool,
       playing: playing == freezed
           ? _value.playing
           : playing // ignore: cast_nullable_to_non_nullable
@@ -190,6 +203,7 @@ class _$_SortingState implements _SortingState {
       required this.speed,
       required this.maxHeight,
       required this.sorting,
+      required this.sorted,
       required this.playing})
       : _array = array;
 
@@ -213,11 +227,13 @@ class _$_SortingState implements _SortingState {
   @override
   final bool sorting;
   @override
+  final bool sorted;
+  @override
   final bool playing;
 
   @override
   String toString() {
-    return 'SortingState(length: $length, color: $color, array: $array, algorithm: $algorithm, speed: $speed, maxHeight: $maxHeight, sorting: $sorting, playing: $playing)';
+    return 'SortingState(length: $length, color: $color, array: $array, algorithm: $algorithm, speed: $speed, maxHeight: $maxHeight, sorting: $sorting, sorted: $sorted, playing: $playing)';
   }
 
   @override
@@ -232,6 +248,7 @@ class _$_SortingState implements _SortingState {
             const DeepCollectionEquality().equals(other.speed, speed) &&
             const DeepCollectionEquality().equals(other.maxHeight, maxHeight) &&
             const DeepCollectionEquality().equals(other.sorting, sorting) &&
+            const DeepCollectionEquality().equals(other.sorted, sorted) &&
             const DeepCollectionEquality().equals(other.playing, playing));
   }
 
@@ -245,6 +262,7 @@ class _$_SortingState implements _SortingState {
       const DeepCollectionEquality().hash(speed),
       const DeepCollectionEquality().hash(maxHeight),
       const DeepCollectionEquality().hash(sorting),
+      const DeepCollectionEquality().hash(sorted),
       const DeepCollectionEquality().hash(playing));
 
   @JsonKey(ignore: true)
@@ -262,6 +280,7 @@ abstract class _SortingState implements SortingState {
       required final Duration speed,
       required final double maxHeight,
       required final bool sorting,
+      required final bool sorted,
       required final bool playing}) = _$_SortingState;
 
   @override
@@ -278,6 +297,8 @@ abstract class _SortingState implements SortingState {
   double get maxHeight;
   @override
   bool get sorting;
+  @override
+  bool get sorted;
   @override
   bool get playing;
   @override
