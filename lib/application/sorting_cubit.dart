@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -9,6 +8,7 @@ import 'package:sorting_visualizer/infrastructure/insertion_sort.dart';
 import 'package:sorting_visualizer/infrastructure/quick_sort.dart';
 import 'package:sorting_visualizer/infrastructure/selection_sort.dart';
 import 'package:sorting_visualizer/domain/sorting_algorithm.dart';
+import 'package:sorting_visualizer/infrastructure/sort_utils.dart';
 
 part 'sorting_cubit.freezed.dart';
 part 'sorting_state.dart';
@@ -82,17 +82,10 @@ class SortingCubit extends Cubit<SortingState> {
   }
 
   void _createAndEmitRandomArray(int length) {
-    List<Node> newArray = [];
-    final random = Random();
-
-    for (int i = 0; i < length; i++) {
-      newArray.add(
-        Node(
-          state: false,
-          value: random.nextInt(state.maxHeight.round()).toDouble(),
-        ),
-      );
-    }
+    List<Node> newArray = generateArrayWithRandomNodes(
+      length,
+      state.maxHeight.round(),
+    );
 
     emit(state.copyWith(array: newArray));
   }
